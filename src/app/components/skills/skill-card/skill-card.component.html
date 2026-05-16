@@ -1,0 +1,28 @@
+<div class="sk">
+  <div class="sk-head">
+    <svg width="76" height="76" viewBox="0 0 76 76">
+      <circle cx="38" cy="38" r="30" fill="none" stroke="var(--line)" stroke-width="3" />
+      <circle
+        cx="38"
+        cy="38"
+        r="30"
+        fill="none"
+        stroke="var(--accent)"
+        stroke-width="3"
+        [attr.stroke-dasharray]="dash() + ' ' + circumference"
+        stroke-linecap="round"
+        transform="rotate(-90 38 38)"
+        class="ring"
+      />
+      <text x="38" y="42" text-anchor="middle" font-family="var(--font-mono)" font-size="13" fill="var(--ink)">
+        {{ value() | number: '1.0-0' }}
+      </text>
+    </svg>
+    <div class="sk-meta">
+      <div class="sk-cat">{{ skill.cat }}</div>
+      <div class="sk-name">{{ skill.name }}</div>
+      <div class="sk-yrs">{{ skill.years }} yrs</div>
+    </div>
+  </div>
+  <div class="sk-code">{{ skill.code }}</div>
+</div>

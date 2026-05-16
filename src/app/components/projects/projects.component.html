@@ -1,0 +1,17 @@
+<section id="projects" data-screen-label="Projects">
+  <div class="pj-head">
+    <div>
+      <div class="eyebrow">03 — Selected work</div>
+      <h2 class="title">Things I've <span class="acc">shipped</span>.</h2>
+    </div>
+    <p class="intro">
+      From PepsiCo at Infosys to LPL Financial today — a decade of frontend work for global enterprises
+      and fintechs.
+    </p>
+  </div>
+  <div class="pj-grid">
+    @for (project of projects; track project.n) {
+      <app-project-card [project]="project" />
+    }
+  </div>
+</section>

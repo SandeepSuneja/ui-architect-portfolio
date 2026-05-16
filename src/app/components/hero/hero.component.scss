@@ -1,0 +1,147 @@
+.hero-section {
+  padding-top: 140px;
+  padding-bottom: 80px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.95fr;
+  gap: 72px;
+  align-items: center;
+  width: 100%;
+}
+
+@media (max-width: 1000px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.hero-meta {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-dim);
+  margin-top: 36px;
+}
+
+.chip {
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  backdrop-filter: blur(4px);
+
+  b {
+    color: var(--ink);
+    font-weight: 500;
+  }
+}
+
+h1 .glow {
+  background: linear-gradient(
+    180deg,
+    var(--ink) 30%,
+    color-mix(in oklab, var(--accent) 50%, var(--ink))
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sub {
+  margin-top: 28px;
+  max-width: 560px;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--ink-dim);
+
+  em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--ink);
+    font-size: 22px;
+  }
+
+  b {
+    color: var(--ink);
+    font-weight: 500;
+  }
+}
+
+.hero-actions {
+  margin-top: 40px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  padding: 12px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.2s;
+}
+
+.btn-pri {
+  background: var(--accent);
+  color: #06140f;
+  border: 1px solid var(--accent);
+
+  &:hover {
+    background: color-mix(in oklab, var(--accent) 85%, white);
+  }
+}
+
+.btn-sec {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line-2);
+
+  &:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+}
+
+.arrow {
+  transition: transform 0.2s;
+}
+
+.btn:hover .arrow {
+  transform: translateX(3px);
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 99px;
+  background: color-mix(in oklab, var(--accent) 8%, transparent);
+  border: 1px solid color-mix(in oklab, var(--accent) 30%, transparent);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  margin-bottom: 28px;
+}
+
+.led {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 2s infinite;
+}

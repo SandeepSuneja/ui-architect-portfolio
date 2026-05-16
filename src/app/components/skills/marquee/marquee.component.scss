@@ -1,0 +1,36 @@
+.mq {
+  overflow: hidden;
+}
+
+.mq-track {
+  display: flex;
+  gap: 56px;
+  width: max-content;
+  font-family: var(--font-mono);
+  font-size: 22px;
+  color: var(--ink-dim);
+  letter-spacing: -0.01em;
+  animation: mq-scroll var(--spd) linear infinite;
+}
+
+.mq.right .mq-track {
+  animation-direction: reverse;
+}
+
+.mq-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  white-space: nowrap;
+}
+
+.mq-bullet {
+  color: var(--accent);
+  font-size: 12px;
+}
+
+@keyframes mq-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}

@@ -1,0 +1,39 @@
+.pj-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 56px;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.title {
+  margin-top: 18px;
+
+  .acc {
+    color: var(--accent-2);
+    font-style: italic;
+    font-family: var(--font-serif);
+    font-weight: 400;
+  }
+}
+
+.intro {
+  max-width: 380px;
+  color: var(--ink-dim);
+  font-size: 16px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.pj-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+@media (max-width: 900px) {
+  .pj-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,72 @@
+@if (tweaks.panelOpen()) {
+  <div class="twk-panel">
+    <div class="twk-hd">
+      <b>Tweaks</b>
+      <button type="button" class="twk-x" aria-label="Close tweaks" (click)="dismiss()">✕</button>
+    </div>
+    <div class="twk-body">
+      <div class="twk-sect">Color</div>
+      <div class="twk-row">
+        <div class="twk-lbl"><span>Accent</span></div>
+        <div class="twk-chips" role="radiogroup">
+          @for (color of accentOptions; track color) {
+            <button
+              type="button"
+              class="twk-chip"
+              role="radio"
+              [attr.data-on]="tweaks.state().accent === color ? '1' : '0'"
+              [attr.aria-checked]="tweaks.state().accent === color"
+              [style.background]="color"
+              (click)="setAccent(color)"
+            ></button>
+          }
+        </div>
+      </div>
+
+      <div class="twk-sect">Typography</div>
+      <div class="twk-row">
+        <div class="twk-lbl"><span>Display font</span></div>
+        <select
+          class="twk-field"
+          [value]="tweaks.state().fontFamily"
+          (change)="setFont($any($event.target).value)"
+        >
+          @for (font of fontOptions; track font) {
+            <option [value]="font">{{ font }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="twk-sect">Motion &amp; detail</div>
+      <div class="twk-row">
+        <div class="twk-lbl"><span>Motion</span></div>
+        <div class="twk-seg" role="radiogroup">
+          @for (opt of motionOptions; track opt) {
+            <button
+              type="button"
+              role="radio"
+              [attr.aria-checked]="tweaks.state().motion === opt"
+              [class.active]="tweaks.state().motion === opt"
+              (click)="setMotion(opt)"
+            >
+              {{ opt }}
+            </button>
+          }
+        </div>
+      </div>
+      <div class="twk-row twk-row-h">
+        <div class="twk-lbl"><span>Grid backdrop</span></div>
+        <button
+          type="button"
+          class="twk-toggle"
+          role="switch"
+          [attr.data-on]="tweaks.state().grid ? '1' : '0'"
+          [attr.aria-checked]="tweaks.state().grid"
+          (click)="setGrid(!tweaks.state().grid)"
+        >
+          <i></i>
+        </button>
+      </div>
+    </div>
+  </div>
+}

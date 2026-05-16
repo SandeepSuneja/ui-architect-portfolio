@@ -1,0 +1,32 @@
+<section id="education" data-screen-label="Education" appInView (inViewChange)="onInView($event)">
+  <div class="ed-head">
+    <div>
+      <div class="eyebrow">04 — Education</div>
+      <h2 class="title">Where I <span class="acc">studied</span>.</h2>
+    </div>
+    <p class="intro">
+      Three degrees spanning India and the UK — from engineering fundamentals to a Master's with a growing
+      focus on machine learning and AI.
+    </p>
+  </div>
+
+  <div class="ed-grid">
+    @for (degree of degrees; track degree.badge; let i = $index) {
+      <article class="ed-card" [class.in]="visible()" [style.transition-delay]="visible() ? i * 120 + 'ms' : '0ms'">
+        <span class="ed-badge">{{ degree.badge }}</span>
+        <span class="ed-period">{{ degree.period }}</span>
+        <h3 class="ed-deg">{{ degree.deg }}</h3>
+        <div class="ed-field">{{ degree.field }}</div>
+        <div class="ed-school">{{ degree.school }}</div>
+        <div class="ed-loc">📍 {{ degree.loc }}</div>
+        <p class="ed-note">{{ degree.note }}</p>
+      </article>
+    }
+  </div>
+
+  <div class="ed-foot">
+    <div><b>Continuous learning</b><span class="dot">·</span>ML &amp; AI applications</div>
+    <div><b>Training</b><span class="dot">·</span>Python &amp; SAP ABAP at Infosys</div>
+    <div><b>Languages</b><span class="dot">·</span>English · Hindi</div>
+  </div>
+</section>

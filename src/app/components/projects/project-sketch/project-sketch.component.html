@@ -1,0 +1,95 @@
+@switch (kind) {
+  @case ('dash') {
+    <svg viewBox="0 0 320 180" width="100%" height="100%">
+      <defs>
+        <linearGradient [attr.id]="gradientId" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" [attr.stop-color]="color" stop-opacity="0.7" />
+          <stop offset="1" [attr.stop-color]="color" stop-opacity="0" />
+        </linearGradient>
+      </defs>
+      <path
+        d="M10 130 L60 90 L100 110 L150 60 L200 80 L250 40 L310 70 L310 170 L10 170Z"
+        [attr.fill]="'url(#' + gradientId + ')'"
+      />
+      <path
+        d="M10 130 L60 90 L100 110 L150 60 L200 80 L250 40 L310 70"
+        fill="none"
+        [attr.stroke]="color"
+        stroke-width="2"
+      />
+      @for (p of dashPoints; track p.x) {
+        <circle [attr.cx]="p.x" [attr.cy]="p.y" r="4" [attr.fill]="color2" />
+      }
+      <g opacity="0.5">
+        <rect x="20" y="20" width="60" height="6" rx="2" [attr.fill]="color" />
+        <rect x="20" y="32" width="40" height="4" rx="2" [attr.fill]="color" opacity="0.5" />
+      </g>
+    </svg>
+  }
+  @case ('comp') {
+    <svg viewBox="0 0 320 180" width="100%" height="100%">
+      @for (i of compCells; track i) {
+        <g>
+          <rect
+            [attr.x]="compX(i)"
+            [attr.y]="compY(i)"
+            width="60"
+            height="60"
+            rx="10"
+            fill="none"
+            [attr.stroke]="color"
+            [attr.stroke-opacity]="0.3 + (i % 3) * 0.2"
+            stroke-width="1.5"
+          />
+          <rect
+            [attr.x]="compX(i) + 10"
+            [attr.y]="compY(i) + 12"
+            [attr.width]="20 + (i * 5) % 30"
+            height="4"
+            rx="2"
+            [attr.fill]="color"
+            opacity="0.5"
+          />
+          <rect
+            [attr.x]="compX(i) + 10"
+            [attr.y]="compY(i) + 22"
+            width="35"
+            height="3"
+            rx="1.5"
+            [attr.fill]="color"
+            opacity="0.25"
+          />
+          @if (i % 3 === 0) {
+            <circle [attr.cx]="compX(i) + 30" [attr.cy]="compY(i) + 44" r="6" [attr.fill]="color2" opacity="0.7" />
+          }
+        </g>
+      }
+    </svg>
+  }
+  @case ('flow') {
+    <svg viewBox="0 0 320 180" width="100%" height="100%">
+      @for (i of flowCols; track i) {
+        <g>
+          <rect [attr.x]="20 + i * 100" y="40" width="80" height="100" rx="12" fill="none" [attr.stroke]="color" stroke-opacity="0.4" />
+          <rect [attr.x]="30 + i * 100" y="55" width="60" height="38" rx="4" [attr.fill]="color" opacity="0.18" />
+          <rect [attr.x]="30 + i * 100" y="100" width="60" height="4" rx="2" [attr.fill]="color" opacity="0.5" />
+          <rect [attr.x]="30 + i * 100" y="110" width="40" height="3" rx="1.5" [attr.fill]="color" opacity="0.3" />
+          <rect [attr.x]="30 + i * 100" y="120" width="50" height="3" rx="1.5" [attr.fill]="color" opacity="0.3" />
+        </g>
+      }
+      <path d="M100 90 L120 90 M200 90 L220 90" [attr.stroke]="color" stroke-width="2" [attr.marker-end]="'url(#' + markerId + ')'" />
+      <defs>
+        <marker [attr.id]="markerId" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+          <path d="M0 0 L10 5 L0 10z" [attr.fill]="color" />
+        </marker>
+      </defs>
+    </svg>
+  }
+  @default {
+    <svg viewBox="0 0 320 180" width="100%" height="100%">
+      @for (i of gridCells; track i) {
+        <rect [attr.x]="gridX(i)" [attr.y]="gridY(i)" width="40" height="30" rx="3" [attr.fill]="color" [attr.opacity]="0.08 + ((i * 7) % 9) / 40" />
+      }
+    </svg>
+  }
+}

@@ -1,0 +1,21 @@
+<section id="skills" data-screen-label="Skills" appInView (inViewChange)="onInView($event)">
+  <div class="sk-head-row">
+    <div>
+      <div class="eyebrow">02 — Capabilities</div>
+      <h2 class="title">Tools I reach for, <span class="acc">daily</span>.</h2>
+    </div>
+    <p class="intro">
+      Eleven years deep. Numbers below are honest self-assessments — proficiency, not certifications.
+    </p>
+  </div>
+
+  <div class="sk-grid">
+    @for (skill of skills; track skill.name; let i = $index) {
+      <app-skill-card [skill]="skill" [index]="i" [inView]="inView()" />
+    }
+  </div>
+
+  <div class="mq-wrap">
+    <app-marquee [items]="marqueeItems" direction="left" [speed]="70" />
+  </div>
+</section>

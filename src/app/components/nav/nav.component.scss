@@ -1,0 +1,73 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 32px;
+  background: linear-gradient(180deg, rgba(7, 9, 12, 0.8), rgba(7, 9, 12, 0));
+  backdrop-filter: blur(8px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  text-decoration: none;
+
+  b {
+    color: var(--accent);
+  }
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--accent);
+  box-shadow: 0 0 12px color-mix(in oklab, var(--accent) 70%, transparent);
+  animation: pulse 2.4s infinite;
+}
+
+ul {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+
+  a {
+    color: var(--ink-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
+}
+
+.cta {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 8px 14px;
+  border: 1px solid var(--line-2);
+  border-radius: 8px;
+  color: var(--ink);
+  text-decoration: none;
+  transition: 0.2s;
+
+  &:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+}
