@@ -1,0 +1,27 @@
+main {
+  position: relative;
+  z-index: 1;
+}
+
+.tweaks-fab {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 40;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--line-2);
+  background: rgba(7, 9, 12, 0.85);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 16px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: 0.2s;
+
+  &:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+}

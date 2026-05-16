@@ -1,0 +1,25 @@
+<article
+  class="pj"
+  [style.--hue]="project.hue"
+  [style.transform]="'perspective(1200px) rotateX(' + tilt().y + 'deg) rotateY(' + tilt().x + 'deg)'"
+  (mousemove)="onMove($event, $any($event.currentTarget))"
+  (mouseleave)="onLeave()"
+>
+  <div class="pj-art">
+    <app-project-sketch [kind]="project.sketch" [hue]="project.hue" />
+    <div class="pj-num">{{ project.n }}</div>
+    <div class="pj-client">{{ project.client }}</div>
+  </div>
+  <div class="pj-body">
+    <div class="pj-meta">
+      <span>{{ project.role }}</span><span>·</span><span>{{ project.year }}</span>
+    </div>
+    <h3 class="pj-name">{{ project.name }}</h3>
+    <p class="pj-blurb">{{ project.blurb }}</p>
+    <div class="pj-tags">
+      @for (tag of project.tags; track tag) {
+        <span class="pj-tag">{{ tag }}</span>
+      }
+    </div>
+  </div>
+</article>

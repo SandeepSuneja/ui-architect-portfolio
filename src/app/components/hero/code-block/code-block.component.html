@@ -1,0 +1,22 @@
+<div class="ide">
+  <div class="ide-bar">
+    <div class="dots"><i></i><i></i><i></i></div>
+    <span class="file"><b>portfolio.component.ts</b> — angular 17</span>
+    <span class="pill">live</span>
+  </div>
+  <div class="ide-body">
+    <div class="ide-gutter">
+      @for (line of lineNumbers(); track line) {
+        <span>{{ line }}</span>
+      }
+    </div>
+    <div class="ide-code">
+      @for (item of visibleTokens(); track $index) {
+        <span [class]="'tk tk-' + item.token.c">{{ item.text }}</span>
+      }
+      @if (!done()) {
+        <span class="caret"></span>
+      }
+    </div>
+  </div>
+</div>

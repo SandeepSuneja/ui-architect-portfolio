@@ -1,0 +1,9 @@
+<div class="mq" [class.right]="direction === 'right'" [style.--spd]="speed + 's'">
+  <div class="mq-track">
+    @for (item of trackItems; track $index) {
+      <span class="mq-item">
+        <span class="mq-bullet">◆</span>{{ item }}
+      </span>
+    }
+  </div>
+</div>
