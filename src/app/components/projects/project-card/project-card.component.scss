@@ -135,3 +135,45 @@
     }
   }
 }
+
+@media (max-width: 640px) {
+  .pj-art {
+    height: 180px;
+  }
+
+  .pj-num,
+  .pj-client {
+    font-size: 10px;
+    top: 12px;
+  }
+
+  .pj-num {
+    left: 14px;
+  }
+
+  .pj-client {
+    right: 14px;
+    max-width: 45%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .pj-body {
+    padding: 18px 18px 20px;
+  }
+
+  .pj-name {
+    font-size: 22px;
+  }
+
+  .pj-blurb {
+    font-size: 13px;
+  }
+
+  .pj-link {
+    flex: 1 1 auto;
+    text-align: center;
+    justify-content: center;
+  }
+}

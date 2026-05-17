@@ -142,3 +142,52 @@
   font-size: 12px;
   color: var(--ink-mute);
 }
+
+@media (max-width: 900px) {
+  .ct-card {
+    padding: 56px 36px;
+  }
+
+  .ct-foot {
+    margin-top: 64px;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-section {
+    padding-bottom: 40px;
+  }
+
+  .ct-card {
+    padding: 36px 22px;
+    border-radius: 16px;
+  }
+
+  .title {
+    max-width: none;
+  }
+
+  .lead {
+    font-size: 15px;
+    margin-top: 16px;
+  }
+
+  .ct-channels {
+    margin-top: 32px;
+    grid-template-columns: 1fr;
+  }
+
+  .ct-extra {
+    margin-top: 28px;
+    grid-template-columns: 1fr;
+    padding-top: 24px;
+  }
+
+  .ct-foot {
+    margin-top: 48px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 11px;
+  }
+}

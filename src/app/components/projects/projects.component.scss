@@ -68,3 +68,24 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 640px) {
+  .pj-head {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 32px;
+    gap: 20px;
+  }
+
+  .pj-section {
+    margin-bottom: 40px;
+  }
+
+  .pj-section--personal {
+    padding-top: 32px;
+  }
+
+  .intro {
+    font-size: 15px;
+  }
+}
