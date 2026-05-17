@@ -5,13 +5,30 @@
       <h2 class="title">Things I've <span class="acc">shipped</span>.</h2>
     </div>
     <p class="intro">
-      From PepsiCo at Infosys to LPL Financial today — a decade of frontend work for global enterprises
-      and fintechs.
+      Enterprise delivery for global clients — plus personal Angular builds I deploy on AWS and keep
+      sharpening to explore APIs, maps, and real-time data.
     </p>
   </div>
-  <div class="pj-grid">
-    @for (project of projects; track project.n) {
-      <app-project-card [project]="project" />
-    }
+
+  <div class="pj-section">
+    <h3 class="pj-section-label">Professional</h3>
+    <div class="pj-grid">
+      @for (project of professionalProjects; track project.n) {
+        <app-project-card [project]="project" />
+      }
+    </div>
+  </div>
+
+  <div class="pj-section pj-section--personal">
+    <h3 class="pj-section-label">Personal builds</h3>
+    <p class="pj-section-intro">
+      Side projects I own end-to-end — designed, built, and hosted to stay hands-on with Angular, Open
+      APIs, and cloud deployment.
+    </p>
+    <div class="pj-grid pj-grid--personal">
+      @for (project of personalProjects; track project.n) {
+        <app-project-card [project]="project" />
+      }
+    </div>
   </div>
 </section>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PROJECTS } from '../../data/portfolio.data';
+import { PERSONAL_PROJECTS, PROFESSIONAL_PROJECTS } from '../../data/portfolio.data';
 import { ProjectCardComponent } from './project-card/project-card.component';
 
 @Component({
@@ -10,5 +10,6 @@ import { ProjectCardComponent } from './project-card/project-card.component';
   styleUrl: './projects.component.scss',
 })
 export class ProjectsComponent {
-  readonly projects = PROJECTS;
+  readonly professionalProjects = PROFESSIONAL_PROJECTS;
+  readonly personalProjects = PERSONAL_PROJECTS;
 }
