@@ -25,3 +25,13 @@ main {
     transform: translateY(-2px);
   }
 }
+
+@media (max-width: 640px) {
+  .tweaks-fab {
+    right: 12px;
+    bottom: 12px;
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+}

@@ -9,6 +9,8 @@ export interface TimelineItem {
   role: string;
   loc: string;
   d: string;
+  logo: string;
+  logoAlt: string;
 }
 
 export interface Skill {
@@ -18,6 +20,9 @@ export interface Skill {
   cat: string;
   code: string;
 }
+
+export type ProjectKind = 'professional' | 'personal';
+export type ProjectStatus = 'live' | 'in-progress';
 
 export interface Project {
   n: string;
@@ -29,6 +34,12 @@ export interface Project {
   tags: string[];
   hue: number;
   sketch: 'dash' | 'flow' | 'comp' | 'grid';
+  kind: ProjectKind;
+  status?: ProjectStatus;
+  /** Set when deployed — e.g. https://weatherly.example.com */
+  liveUrl?: string;
+  /** Set when public — e.g. https://github.com/you/weatherly */
+  githubUrl?: string;
 }
 
 export interface Degree {

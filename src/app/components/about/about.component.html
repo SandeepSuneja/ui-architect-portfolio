@@ -3,19 +3,17 @@
   <div class="ab-grid">
     <div>
       <p class="ab-lead">
-        I lead frontend teams building <em>scalable, enterprise-grade</em> UI for global fintech and
-        product companies — and care deeply about architecture, performance and the developer
+        I lead frontend teams building <em>scalable, enterprise-grade</em> UI for global companies —
+        and care deeply about architecture, performance and the developer
         experience around it.
       </p>
       <p class="ab-copy">
         Currently Senior Technical Lead at Incedo Inc., delivering financial systems for LPL Financial.
-        Past clients include Citibank, Siemens, PepsiCo and Perforce. I hold an MSc from Liverpool John
-        Moores University and an Executive PG from IIIT Bangalore, with a growing focus on AI-driven
-        applications.
+        Past clients include Citibank, Siemens, PepsiCo and Perforce.
       </p>
       <div class="ab-stats">
         <div class="ab-stat">
-          <div class="n">10+</div>
+          <div class="n">11</div>
           <div class="l">Years experience</div>
         </div>
         <div class="ab-stat">
@@ -35,9 +33,16 @@
           [class.in]="visible()"
           [style.transition-delay]="visible() ? i * 120 + 'ms' : '0ms'"
         >
-          <div class="yr">{{ item.y }}</div>
-          <div class="ti">{{ item.role }}</div>
-          <div class="co">{{ item.co }} · {{ item.loc }}</div>
+          <div class="tl-head">
+            <div class="tl-logo-wrap">
+              <img class="tl-logo" [src]="item.logo" [alt]="item.logoAlt" loading="lazy" decoding="async" />
+            </div>
+            <div class="tl-meta">
+              <div class="yr">{{ item.y }}</div>
+              <div class="ti">{{ item.role }}</div>
+              <div class="co">{{ item.co }} · {{ item.loc }}</div>
+            </div>
+          </div>
           <div class="de">{{ item.d }}</div>
         </div>
       }

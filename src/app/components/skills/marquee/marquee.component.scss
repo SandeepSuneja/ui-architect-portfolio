@@ -34,3 +34,14 @@
     transform: translateX(-50%);
   }
 }
+
+@media (max-width: 640px) {
+  .mq-track {
+    gap: 36px;
+    font-size: 16px;
+  }
+
+  .mq-item {
+    gap: 12px;
+  }
+}

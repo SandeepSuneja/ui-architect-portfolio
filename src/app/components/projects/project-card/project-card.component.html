@@ -1,5 +1,6 @@
 <article
   class="pj"
+  [class.pj--personal]="project.kind === 'personal'"
   [style.--hue]="project.hue"
   [style.transform]="'perspective(1200px) rotateX(' + tilt().y + 'deg) rotateY(' + tilt().x + 'deg)'"
   (mousemove)="onMove($event, $any($event.currentTarget))"
@@ -8,7 +9,7 @@
   <div class="pj-art">
     <app-project-sketch [kind]="project.sketch" [hue]="project.hue" />
     <div class="pj-num">{{ project.n }}</div>
-    <div class="pj-client">{{ project.client }}</div>
+    <div class="pj-client" [class.pj-client--status]="project.kind === 'personal'">{{ badgeLabel() }}</div>
   </div>
   <div class="pj-body">
     <div class="pj-meta">
@@ -21,5 +22,19 @@
         <span class="pj-tag">{{ tag }}</span>
       }
     </div>
+    @if (hasLinks()) {
+      <div class="pj-links">
+        @if (project.liveUrl) {
+          <a class="pj-link" [href]="project.liveUrl" target="_blank" rel="noopener noreferrer">
+            Live demo <span aria-hidden="true">→</span>
+          </a>
+        }
+        @if (project.githubUrl) {
+          <a class="pj-link pj-link--ghost" [href]="project.githubUrl" target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
+        }
+      </div>
+    }
   </div>
 </article>

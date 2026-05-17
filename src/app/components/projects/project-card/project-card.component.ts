@@ -14,6 +14,17 @@ export class ProjectCardComponent {
 
   readonly tilt = signal({ x: 0, y: 0 });
 
+  badgeLabel(): string {
+    if (this.project.kind === 'personal') {
+      return this.project.status === 'in-progress' ? 'In progress' : 'Deployed';
+    }
+    return this.project.client;
+  }
+
+  hasLinks(): boolean {
+    return !!(this.project.liveUrl || this.project.githubUrl);
+  }
+
   onMove(event: MouseEvent, el: HTMLElement): void {
     const r = el.getBoundingClientRect();
     const cx = (event.clientX - r.left) / r.width - 0.5;

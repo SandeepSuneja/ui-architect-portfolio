@@ -31,27 +31,31 @@ Example bucket policy (public read; adjust if using CloudFront OAI instead):
 }
 ```
 
-## 2. IAM user for GitHub Actions
+## 2. IAM user for GitHub Actions (`deployUser`)
 
-Create an IAM user (e.g. `github-actions-ui-architect-portfolio`) with this policy:
+Attach this policy to the IAM user whose keys are in GitHub Secrets (e.g. **`deployUser`**).
+
+`aws s3 sync` calls **ListObjectsV2**, which requires **`s3:ListBucket` on the bucket ARN** (not only object-level permissions).
+
+### Policy (recommended — split bucket vs objects)
+
+In **IAM → Users → deployUser → Add permissions → Create inline policy → JSON**:
 
 ```json
 {
   "Version": "2012-10-17",
   "Statement": [
     {
-      "Sid": "DeployPortfolio",
+      "Sid": "ListBucket",
       "Effect": "Allow",
-      "Action": [
-        "s3:ListBucket",
-        "s3:GetObject",
-        "s3:PutObject",
-        "s3:DeleteObject"
-      ],
-      "Resource": [
-        "arn:aws:s3:::ui-architect-portfolio",
-        "arn:aws:s3:::ui-architect-portfolio/*"
-      ]
+      "Action": ["s3:ListBucket", "s3:GetBucketLocation"],
+      "Resource": "arn:aws:s3:::ui-architect-portfolio"
+    },
+    {
+      "Sid": "ObjectReadWrite",
+      "Effect": "Allow",
+      "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"],
+      "Resource": "arn:aws:s3:::ui-architect-portfolio/*"
     },
     {
       "Sid": "CloudFrontInvalidate",
@@ -63,7 +67,27 @@ Create an IAM user (e.g. `github-actions-ui-architect-portfolio`) with this poli
 }
 ```
 
-Remove the `CloudFrontInvalidate` statement if you do not use CloudFront.
+Remove the `CloudFrontInvalidate` block if you do not use CloudFront.
+
+A copy-paste file is also at [iam-deploy-policy.json](./iam-deploy-policy.json).
+
+### Attach via AWS CLI
+
+```bash
+aws iam put-user-policy \
+  --user-name deployUser \
+  --policy-name ui-architect-portfolio-deploy \
+  --policy-document file://docs/iam-deploy-policy.json
+```
+
+### Troubleshooting `AccessDenied` on `ListObjectsV2`
+
+| Symptom | Fix |
+|---------|-----|
+| `not authorized to perform: s3:ListBucket` on `arn:aws:s3:::ui-architect-portfolio` | Add the **ListBucket** statement above to **`deployUser`** (bucket ARN, no `/*`). |
+| Policy exists but still denied | Confirm GitHub Secrets use **deployUser** access keys, not another user. |
+| Denied on `PutObject` only | Add **ObjectReadWrite** statement (`arn:.../ui-architect-portfolio/*`). |
+| Bucket in another account | IAM user and bucket must be in the **same** AWS account (or use cross-account role). |
 
 ## 3. GitHub repository secrets
 

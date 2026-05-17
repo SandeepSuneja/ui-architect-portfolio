@@ -5,7 +5,10 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development"
+    "watch": "ng build --watch --configuration development",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
   },
   "private": true,
   "dependencies": {
@@ -20,9 +23,14 @@
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
+    "@analogjs/vite-plugin-angular": "^2.5.1",
+    "@analogjs/vitest-angular": "^2.5.1",
     "@angular-devkit/build-angular": "^19.2.0",
     "@angular/cli": "^19.2.0",
     "@angular/compiler-cli": "^19.2.0",
-    "typescript": "~5.7.2"
+    "@vitest/coverage-v8": "^4.1.6",
+    "jsdom": "^29.1.1",
+    "typescript": "~5.7.2",
+    "vitest": "^4.1.6"
   }
 }
