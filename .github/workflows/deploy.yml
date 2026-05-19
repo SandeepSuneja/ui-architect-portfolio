@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  S3_BUCKET: ui-architect-portfolio
+  S3_BUCKET: sandytech.dev
   BUILD_OUTPUT: dist/portfolio/browser
   CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
 
