@@ -167,7 +167,7 @@ export const PROJECTS: Project[] = [
   {
     n: '02',
     kind: 'professional',
-    name: 'Bank Account Validation',
+    name: 'CitiVerify - Bank Account Validation',
     client: 'Citibank (via Incedo)',
     role: 'Technical Lead & Senior UI Developer',
     year: '2022',
