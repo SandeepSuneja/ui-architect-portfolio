@@ -1,0 +1,18 @@
+{
+  "name": "Sandeep Suneja — Senior Angular Developer & Technical Lead",
+  "short_name": "Sandeep Suneja",
+  "description": "Portfolio of Sandeep Suneja — Senior Technical Lead specializing in Angular, enterprise UI architecture, and fintech frontends.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07090c",
+  "theme_color": "#5cf2c2",
+  "lang": "en-IN",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
