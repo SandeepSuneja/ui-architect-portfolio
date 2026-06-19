@@ -3,6 +3,7 @@ import {
   ACCENTS,
   ANGULAR_CODE,
   DEGREES,
+  FAQS,
   FONTS,
   MARQUEE_ITEMS,
   PERSONAL_PROJECTS,
@@ -15,12 +16,12 @@ import {
 
 describe('portfolio.data', () => {
   it('exports tweak defaults', () => {
-    expect(TWEAK_DEFAULTS.accent).toBe('#5cf2c2');
+    expect(TWEAK_DEFAULTS.accent).toBe('#7cb6ff');
     expect(TWEAK_DEFAULTS.grid).toBe(true);
   });
 
   it('maps accent and font palettes', () => {
-    expect(ACCENTS['#5cf2c2'].primary).toBe('#5cf2c2');
+    expect(ACCENTS['#7cb6ff'].primary).toBe('#7cb6ff');
     expect(FONTS['Space Grotesk']).toContain('Space Grotesk');
   });
 
@@ -48,5 +49,10 @@ describe('portfolio.data', () => {
   it('provides degree records', () => {
     expect(DEGREES.length).toBe(3);
     expect(DEGREES[0].badge).toBe('MSc');
+  });
+
+  it('provides FAQ records', () => {
+    expect(FAQS.length).toBeGreaterThan(0);
+    expect(FAQS.every((item) => item.q && item.a)).toBe(true);
   });
 });

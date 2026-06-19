@@ -1,6 +1,7 @@
 import {
   CodeToken,
   Degree,
+  FaqItem,
   Project,
   Skill,
   TimelineItem,
@@ -8,7 +9,7 @@ import {
 } from '../models/portfolio.models';
 
 export const TWEAK_DEFAULTS: TweakState = {
-  accent: '#5cf2c2',
+  accent: '#7cb6ff',
   fontFamily: 'Space Grotesk',
   motion: 'smooth',
   grid: true,
@@ -293,5 +294,28 @@ export const DEGREES: Degree[] = [
     period: '2011 — 2015',
     note: 'Undergraduate in Computer Science and engineering fundamentals.',
     badge: 'BTech',
+  },
+];
+
+export const FAQS: FaqItem[] = [
+  {
+    q: 'What kind of frontend work do you specialize in?',
+    a: 'I focus on Angular-heavy enterprise UI, modular frontend architecture, reusable component systems, performance improvements, and team delivery practices for fintech and business applications.',
+  },
+  {
+    q: 'Are you available for consulting or freelance projects?',
+    a: 'Yes. I am open to senior frontend roles, architecture consulting, code reviews, UI modernization, and focused delivery support for Angular projects.',
+  },
+  {
+    q: 'Do you work with remote teams?',
+    a: 'Yes. I am based in Delhi and comfortable working with distributed teams across remote and hybrid setups, including product, design, backend, and QA stakeholders.',
+  },
+  {
+    q: 'Which technologies do you use most often?',
+    a: 'Angular, TypeScript, JavaScript, RxJS, HTML, SCSS, Jasmine, Karma, Git, and AWS. I also have a growing focus on ML and AI-driven application experiences.',
+  },
+  {
+    q: 'What is the best way to get in touch?',
+    a: 'Email is the fastest option. You can also reach out on LinkedIn or GitHub from the contact section below.',
   },
 ];

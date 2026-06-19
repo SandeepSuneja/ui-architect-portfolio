@@ -10,7 +10,7 @@ import { TweakService } from '../../services/tweak.service';
 export class TweaksPanelComponent {
   readonly tweaks = inject(TweakService);
 
-  readonly accentOptions = ['#5cf2c2', '#7cb6ff', '#ff79c6', '#ffcb6b', '#dd0031'];
+  readonly accentOptions = ['#7cb6ff', '#5cf2c2', '#ff79c6', '#ffcb6b', '#dd0031'];
   readonly fontOptions = ['Space Grotesk', 'Inter', 'Geist', 'Serif'];
   readonly motionOptions: Array<'minimal' | 'smooth'> = ['minimal', 'smooth'];
 

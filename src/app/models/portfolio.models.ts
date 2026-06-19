@@ -52,6 +52,11 @@ export interface Degree {
   badge: string;
 }
 
+export interface FaqItem {
+  q: string;
+  a: string;
+}
+
 export interface TweakState {
   accent: string;
   fontFamily: string;

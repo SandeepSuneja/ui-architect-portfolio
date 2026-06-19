@@ -2,6 +2,7 @@ import { Component, HostListener, inject } from '@angular/core';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { EducationComponent } from './components/education/education.component';
+import { FaqComponent } from './components/faq/faq.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { NavComponent } from './components/nav/nav.component';
 import { ProjectsComponent } from './components/projects/projects.component';
@@ -19,6 +20,7 @@ import { TweakService } from './services/tweak.service';
     SkillsComponent,
     ProjectsComponent,
     EducationComponent,
+    // FaqComponent,
     ContactComponent,
     TweaksPanelComponent,
   ],
