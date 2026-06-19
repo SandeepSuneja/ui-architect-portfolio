@@ -24,6 +24,7 @@ describe('AppComponent', () => {
     expect(component).toBeTruthy();
     expect(fixture.nativeElement.querySelector('app-nav')).toBeTruthy();
     expect(fixture.nativeElement.querySelector('app-hero')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('app-faq')).toBeTruthy();
   });
 
   it('opens tweaks panel from fab handler', () => {

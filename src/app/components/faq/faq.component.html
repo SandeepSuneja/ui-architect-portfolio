@@ -1,0 +1,23 @@
+<section id="faq" data-screen-label="FAQ" appInView (inViewChange)="onInView($event)">
+  <div class="faq-head">
+    <div>
+      <div class="eyebrow">05 — FAQ</div>
+      <h2 class="title">Questions clients <span class="acc">usually ask</span>.</h2>
+    </div>
+    <p class="intro">
+      A quick snapshot of how I work, what I focus on, and the best way to start a conversation.
+    </p>
+  </div>
+
+  <div class="faq-grid">
+    @for (faq of faqs; track faq.q; let i = $index) {
+      <details class="faq-item" [class.in]="visible()" [style.transition-delay]="visible() ? i * 90 + 'ms' : '0ms'">
+        <summary>
+          <span>{{ faq.q }}</span>
+          <span class="mark" aria-hidden="true">+</span>
+        </summary>
+        <p>{{ faq.a }}</p>
+      </details>
+    }
+  </div>
+</section>

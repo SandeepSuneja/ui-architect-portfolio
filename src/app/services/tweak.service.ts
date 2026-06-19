@@ -33,7 +33,7 @@ export class TweakService {
 
   private applyToDocument(t: TweakState): void {
     const root = document.documentElement;
-    const accent = ACCENTS[t.accent] ?? ACCENTS['#5cf2c2'];
+    const accent = ACCENTS[t.accent] ?? ACCENTS['#7cb6ff'];
     root.style.setProperty('--accent', accent.primary);
     root.style.setProperty('--accent-2', accent.secondary);
     root.style.setProperty('--font-display', FONTS[t.fontFamily] ?? FONTS['Space Grotesk']);

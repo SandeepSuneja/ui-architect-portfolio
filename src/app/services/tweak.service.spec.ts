@@ -20,7 +20,7 @@ describe('TweakService', () => {
 
   it('applies defaults to the document on init', () => {
     expect(document.documentElement.style.getPropertyValue('--accent')).toBe(
-      '#5cf2c2',
+      '#7cb6ff',
     );
     expect(postMessage).toHaveBeenCalledWith(
       { type: '__edit_mode_available' },
@@ -49,7 +49,7 @@ describe('TweakService', () => {
     });
     service.set('grid', false);
     expect(document.documentElement.style.getPropertyValue('--accent')).toBe(
-      '#5cf2c2',
+      '#7cb6ff',
     );
     expect(document.documentElement.style.getPropertyValue('--font-display')).toBe(
       '"Space Grotesk", ui-sans-serif, system-ui, sans-serif',
