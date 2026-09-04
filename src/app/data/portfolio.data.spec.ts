@@ -34,6 +34,12 @@ describe('portfolio.data', () => {
     expect(TIMELINE.length).toBe(4);
     expect(SKILLS.length).toBeGreaterThan(5);
     expect(MARQUEE_ITEMS).toContain('Angular');
+    expect(SKILLS.map((skill) => skill.name)).toEqual(
+      expect.arrayContaining(['React', 'NestJS', 'LangGraph / OpenAI', 'FastAPI / PyTorch']),
+    );
+    expect(MARQUEE_ITEMS).toEqual(
+      expect.arrayContaining(['LangGraph', 'OpenAI', 'FLUX', 'FastAPI', 'PyTorch']),
+    );
   });
 
   it('splits projects by kind', () => {
@@ -44,6 +50,19 @@ describe('portfolio.data', () => {
       true,
     );
     expect(PERSONAL_PROJECTS.every((p) => p.kind === 'personal')).toBe(true);
+  });
+
+  it('puts AI Story Factory first in personal projects', () => {
+    expect(PERSONAL_PROJECTS[0].name).toBe('AI Story Factory');
+    expect(PERSONAL_PROJECTS[0].status).toBe('in-progress');
+  });
+
+  it('includes Pulse Track as a live personal project', () => {
+    const pulse = PERSONAL_PROJECTS.find((p) => p.name === 'Pulse Track');
+    expect(pulse).toBeDefined();
+    expect(pulse?.status).toBe('live');
+    expect(pulse?.liveUrl).toBe('https://d1an7n363nv3up.cloudfront.net/');
+    expect(pulse?.githubUrl).toBe('https://github.com/SandeepSuneja/pulse-track');
   });
 
   it('provides degree records', () => {
