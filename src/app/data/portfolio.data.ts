@@ -83,7 +83,7 @@ export const ANGULAR_CODE: CodeToken[] = [
 
 export const TIMELINE: TimelineItem[] = [
   {
-    y: '2021 - PRESENT',
+    y: '2021 - 2026',
     co: 'Incedo Inc.',
     role: 'Senior Technical Lead',
     loc: 'Gurugram',
